@@ -1,0 +1,11 @@
+export function sendSuccess(
+  res,
+  { statusCode = 200, message = "ok", data = null, meta } = {},
+) {
+  return res.status(statusCode).json({
+    success: true,
+    message,
+    data,
+    ...(meta ? { meta } : {}),
+  });
+};
